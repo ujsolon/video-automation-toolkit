@@ -1,0 +1,101 @@
+[
+  {
+    "file": "ms_ai102_81.mp4",
+    "title": "81. AI-102 Prep: Benefits of Using Azure OpenAI for Code Generation",
+    "description": "Using Azure OpenAI for code generation saves time and reduces repetitive tasks, boosting developer productivity.\n\n#AzureAI #OpenAI #CodeGeneration #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "CodeGeneration", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-07T07:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_82.mp4",
+    "title": "82. AI-102 Prep: Why Context Improves Azure OpenAI Code Completion",
+    "description": "Providing more context to Azure OpenAI when completing partial code improves accuracy and generates better suggestions.\n\n#AzureAI #OpenAI #CodeCompletion #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "CodeCompletion", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-07T19:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_83.mp4",
+    "title": "83. AI-102 Prep: Azure OpenAI Content Filtering",
+    "description": "Azure OpenAI provides built-in content filtering to ensure safe and responsible use of AI-generated text.\n\n#AzureAI #OpenAI #ContentFiltering #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "ContentFiltering", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-08T07:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_84.mp4",
+    "title": "84. AI-102 Prep: Azure OpenAI Token Usage",
+    "description": "In Azure OpenAI, tokens represent chunks of words. Efficient token usage helps optimize performance and manage costs.\n\n#AzureAI #OpenAI #TokenUsage #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "TokenUsage", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-08T19:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_85.mp4",
+    "title": "85. AI-102 Prep: Embeddings in Azure OpenAI",
+    "description": "Embeddings in Azure OpenAI convert text into numerical representations, enabling semantic search and similarity comparison.\n\n#AzureAI #OpenAI #Embeddings #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "Embeddings", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-09T07:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_86.mp4",
+    "title": "86. AI-102 Prep: Azure OpenAI Temperature Parameter",
+    "description": "The temperature parameter in Azure OpenAI controls randomness in output: low values make responses focused, higher values make them creative.\n\n#AzureAI #OpenAI #Temperature #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "Temperature", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-09T19:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_87.mp4",
+    "title": "87. AI-102 Prep: Azure OpenAI Top P Parameter",
+    "description": "The Top P parameter in Azure OpenAI controls nucleus sampling, limiting outputs to a probability threshold for balanced creativity.\n\n#AzureAI #OpenAI #TopP #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "TopP", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-10T07:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_88.mp4",
+    "title": "88. AI-102 Prep: Azure OpenAI Stop Sequences",
+    "description": "Stop sequences in Azure OpenAI control where text generation ends, ensuring cleaner and more structured outputs.\n\n#AzureAI #OpenAI #StopSequences #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "StopSequences", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-10T19:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_89.mp4",
+    "title": "89. AI-102 Prep: Azure OpenAI Max Tokens Setting",
+    "description": "Max tokens in Azure OpenAI define the length of generated responses. Adjusting this helps balance detail with efficiency.\n\n#AzureAI #OpenAI #MaxTokens #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "MaxTokens", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-11T07:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_90.mp4",
+    "title": "90. AI-102 Prep: Azure OpenAI Frequency Penalty",
+    "description": "The frequency penalty in Azure OpenAI reduces repeated phrases in output, improving clarity and reducing redundancy.\n\n#AzureAI #OpenAI #FrequencyPenalty #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "FrequencyPenalty", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-11T19:00:00Z",
+    "categoryId": "28"
+  },
+  {
+    "file": "ms_ai102_91.mp4",
+    "title": "91. AI-102 Prep: Azure OpenAI Presence Penalty",
+    "description": "The presence penalty in Azure OpenAI encourages introducing new topics, making outputs more diverse and exploratory.\n\n#AzureAI #OpenAI #PresencePenalty #AI102 #MicrosoftLearn #Certification #ExamPrep",
+    "tags": ["AzureAI", "OpenAI", "PresencePenalty", "AI102", "MicrosoftLearn", "Certification", "ExamPrep"],
+    "privacy": "private",
+    "publishAt": "2025-09-12T07:00:00Z",
+    "categoryId": "28"
+  }
+]
