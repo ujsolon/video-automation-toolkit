@@ -1,0 +1,578 @@
+Text from a01.jpg:
+This solution meets the goal. You need to deploy two or more VMs to different availability zones in the same
+region to acquire an SLA connectivity percentage of 99.99. This is the highest possible percentage in Azure.
+An availability zone is made up of one or more datacenters. You also need to create and configure a
+standard SKU load balancer. This includes creating a zone-redundant standard IP address. This IP address
+will be replicated across the three zones. Only a standard SKU load balancer offers this feature; the basic
+SKU does not.
+
+The load balancer will be zone-redundant because the attached IP address is zone-redundant. The load
+balancer distributes inbound flows to the VMs. This assures connectivity as long as a VM in a single zone
+has connectivity. A standard load balancer has an SLA of 99.99% when connected to two or more healthy
+VMs.
+
+Text from a02.jpg:
+This solution does not meet the goal. When you deploy two or more VMs in the same availability set, you
+will have a guaranteed SLA percentage of 99.95%. This is lower than the maximum of 99.99 percent for VMs
+deployed into different availability zones. Also, when you deploy VMs in an availability set, the VMs are not
+deployed into different datacenters. When you create a basic load balancer, you will not get an SLA. Only
+standard load balancers offer SLAs.
+
+Text from a03.jpg:
+This solution does not meet the goal. Azure Front Door can perform load balancing only at the global level.
+In this scenario, you need to load balance traffic within a single VNet in a single region. You need to use a
+load balancer or an application gateway to spread the connections across the VMs.
+
+Text from a04.jpg:
+This solution does not meet the goal. To deploy the VMs to different datacenters inside a region, each VM
+must be deployed to a different availability zone (1, 2, and 3). This is also required for the highest possible
+SLA percentage of 99.99.
+
+Text from a05.jpg:
+This solution does not meet the goal. The problem is that the Free pricing tier supports no more than 60
+minutes of CPU time per day. You should not change the pricing tier for MyPlan to Shared D1. This plan
+allows only 240 minutes of CPU time per day.
+
+Text from a06.jpg:
+This solution does meet the goal. You should change the pricing tier for MyPlan to Basic B1. This is the least
+expensive plan that supports 24-hour CPU time.
+
+Text from a07.jpg:
+This solution does not meet the goal. The problem is that the Free pricing tier supports no more than 60
+minutes of CPU time per day. You should not change the pricing tier for MyPlan to Standard S1. This meets
+the run time requirement but it is not the least expensive solution.
+
+Text from a08.jpg:
+You should create a Domain Name System (DNS) name server (NS) record set named development in the
+company.com zone. The NS must be created at the apex of the zone name, i.e., the top-level zone name.
+The NS record identifies the Azure DNS name server assigned to the zone. The top-level NS record set is
+created automatically and cannot be deleted. You can create, modify, and delete NS record sets for
+delegated zones.
+
+You should not create a DNS NS record set named development in the development.company.com zone.
+The record set must be created in the top-level zone.
+
+You should not modify the DNS Start of Authority (SOA) record for company.com. The SOA record is
+created automatically for the top-level zone. It contains the Azure DNS primary name server in the host
+property, which cannot be changed. The SOA record does not contain name server information for
+delegated zones.
+
+You should not create a DNS SOA record for development.company.com. The SOA record is created
+automatically for the top-level zone and is deleted if the zone is deleted. You do not create an SOA record
+for a delegated zone.
+
+Text from a09.jpg:
+When planning a new Azure network security group (NSG), you have to consider the rules that will apply to
+the configuration. The first steps are to create a new configuration rule, then create configurations for each of
+the rules, and then create a new security group containing the rules. You use the New-
+AzNetworkSecurityRuleConfig cmdlet for the first two steps. Then, you use the New-
+AzNetworkSecurityGroup cmdlet to assign the two rules to the new group. This group can then be assigned
+to multiple virtual network (VNet) subnets in order to implement the rules.
+
+You should not use the Set-AzNetworkinterfacelpConfig cmdlet. This cmdlet is used to modify an existing IP
+configuration that has already been applied to an interface. It does not help in the configuration of a new
+one.
+
+The Set-AzNetworkSecurityGroup cmdlet is used to set the goal state for an NSG, such as the allowed rules
+or allow and deny based on those rules. It is not needed when setting up a new NSG.
+
+The Set-AzNetworkSecurityRuleConfig cmdlet is used to modify an existing NSG configuration. It is not used
+to configure the configuration for a new security rule.
+
+Text from a10.jpg:
+Resources in the resource group were deleted except for the newly-created storage account because you
+used the -mode complete parameter with the New-AzResourceGroupDeployment cmdlet. The New-
+AzResourceGroupDeployment cmdlet has two deployment modes: incremental and complete. When you
+use the complete mode, all resources in the resource group that are not included in the template are
+deleted.
+
+Using the -mode parameter with the New-AzResourceGroupDeployment cmdlet was not the cause. When
+you do not use the -mode parameter, you are using the default incremental deployment mode. In this mode,
+any resource that is not present in the template is maintained in the resource group. If a resource in the
+resource group is present in the template and any of these parameters in the template differ from the values
+in the resource group, those values are updated in the resource present in Azure. You should use this mode
+when deploying the template.
+
+The cause was not the template containing the mode parameter with the value Complete or Incremental. The
+template that you are using does not contain any linked or nested templates, so the mode parameter should
+not be present in the template with either value. This parameter is part of the deployment resource type and
+is typically used with nested or linked templates. Complete and incremental deployment modes behave the
+same way as in the New-AzResourceGroupDeployment cmdlet.
+
+Text from a11.jpg:
+You should first regenerate key2 using the Azure portal. This ensures that you are not using any key that has
+been compromised in the past. This is very important since, in this scenario, you are concerned that both
+keys may have been compromised. After regenerating the key2, you should then proceed to update the
+connection strings for all the relevant apps to use key2, then regenerate key! as it is not the primary key
+now.
+
+Next, you should update the connection strings for all the relevant apps to use newly generated key1, then
+regenerate key? as it is not the primary key. This is important because the apps and services will not be able
+to use the previous primary key after it is regenerated.
+
+Finally, you should check that all apps and services are working correctly. As a final step, as a best practice,
+you should regenerate key2 again.
+
+You do not need to create a new key called key3 as you can regenerate both Key1 and Key2, which will
+mitigate any security concerns if the keys have been compromised.
+
+Text from a12.jpg:
+You should set Fault domains to 3. This is the maximum number of fault domains in the Central US region.
+Virtual machines (VMs) in the same fault domain share hardware such as power sources and physical
+network switches. VMs in different fault domains are physically separated. By setting the fault domains to
+the maximum value, the VMs are physically separated as much as possible.
+
+You should set Update domains to 4. The VMs will be divided among these four update domains, so each
+update domain will contain two VMs. Azure performs planned maintenance of the hypervisors for one
+update domain at a time. In this case, two VMs will be restarted at the same time.
+
+Text from a13.jpg:
+You should use the Azure Storage Explorer tool to allow the Marketing department to manage the migration
+of data from the Marketing file shares to Azure file shares. Azure Storage Explorer can be installed on
+Windows 10, 7 and 8 operating systems and it has an easy to use graphic user interface (GU). It is used to
+migrate data in a lot of different scenarios, including on-premises to Azure.
+
+You should not use PowerShell. Although it is supported, PowerShell is a command line tool which does not
+have a GUI, so it is not user friendly. You would need to have knowledge of multiple PowerShell cmdlets and
+the users would need to have a good understanding of scripting and Azure, therefore it does not fit the
+requirements for this scenario.
+
+You should not use Azure Data Box. This service is actually not a downloadable tool, it is a physical device
+that would need to be ordered from the Azure portal and then set up in order to be able to import or export
+data from Azure. Additionally, it is more suited to moving terabytes of data rather than gigabytes. Microsoft
+recommends using the Data Box service for migrations with more than 40 TB of data, but the Marketing
+team only has 15 GB.
+
+You should not use AzCopy. This is another command line tool that is utilized to migrate data into Azure files
+or blob storage and it does not have a GUI. It is not user friendly as you need to have knowledge of multiple
+commands and the users would be required to have a good understanding of scripting and Azure.
+
+Text from a14.jpg:
+You should use the azCopy command with the sync option and set share! as the primary source and share2
+as the destination. Setting the --delete-destination flag would delete the temporary files that are not present
+in share1. The sync options will also ensure that the latest version of the file is retained at both source and
+destination locations.
+
+You should not use Microsoft Azure Storage Explorer to compare files. This will be a tedious job and prone
+to errors. Also, it will take a significant amount of time to manually ensure that both shares are in sync.
+
+You should not delete the files in share2 because you would lose the changes made to the share? files that
+need to be merged back to share1.
+
+You should not create a new share3 container. That would require manually copying from both shares. Also,
+users would have to re-map their network shares.
+
+Text from a15-1.jpg:
+You should use the Standard plan. The Standard plan supports up to 10 instances, which aligns perfectly
+with the peak load requirement. This ensures the application can handle increased traffic without
+performance issues. This plan also offers dedicated virtual machines with enhanced compute capabilities,
+making it suitable for complex calculations. This ensures your application performs efficiently even under
+heavy computational loads. The Standard plan is more affordable compared to Premium V3 and Isolated
+plans. This helps in minimizing costs while still meeting the scenario requirements. The Standard plan
+
+also provides sufficient resources without unnecessary overhead, meeting the minimal storage requirements
+(not exceeding 5 GB) stated in the scenario. Finally, the Standard plan ensures that the virtual machines are
+dedicated to your company only, providing the necessary isolation and security. Overall, the Standard plan
+strikes a balance between performance, scalability, and cost, making it a practical choice for your web
+application.
+
+You should not use the Shared plan. It might seem like a cost-effective option, but it has several limitations
+that make it unsuitable for the scenario requirements. The Shared plan does not support scaling up to 10
+instances. It is designed for low-traffic applications and does not offer the same level of scalability as the
+Standard plan. The Shared plan provides limited compute resources, which may not be sufficient for your
+application's complex calculations. It is intended for basic web applications with minimal computational
+needs. In the Shared plan, resources are shared among multiple customers, which means that the
+application will not have dedicated virtual machines, which could impact performance and security. Finally,
+the Shared plan offers lower performance and reliability compared to the Standard plan. This could affect
+the user experience, especially during peak loads.
+
+Text from a15-2.jpg:
+You should not use the Isolated plan. This will support all the specified requirements for the application, but
+it is more expensive. App Service Environments in Isolated tier increases your scale-out count to 100
+instances.
+
+You should not use Premium V3 plan. While it offers enhanced performance and scalability, supporting up
+to 30 instances and dedicated VMs with advanced compute capabilities, which might be beneficial for
+complex calculations, it is a more costly solution.
+
+Text from a16.jpg:
+You should then create a bastion and assign the existing, relevant subnet. You have created the subnet
+before provisioning the Azure Bastion, and therefore you need to ensure that you assign an existing subnet
+during the creation and select the correct one you created in step 1. Azure Bastion is a platform service that
+provides secure Remote Desktop Protocol (RDP) access to virtual machines (VMs).
+
+Finally, you should connect to vm1 using the Azure portal in a web browser. Azure Bastion can only provide
+RDP access to VMs by using a web browser.
+
+You should not create a subnet named BastionSubnet and an address range of 10.2.0.2/28. As stated,
+BastionSubnet is not a valid name. The address range must be /26 or larger (meaning /26, /25, /24, and so
+on).
+
+You should not create a virtual network (VNet) named AzureBastionVNet and an address space of
+10.3.0.0/22. You should only create one Bastion service per VNet. There is no need to create an additional
+VNet.
+
+You should not connect to vm1 using an RDP client. RDP connections using the Bastion service can only be
+made through a web browser.
+
+You should not add a public IP address to vm1 using the standard Stock Keeping Unit (SKU). The VM does
+not need a public IP address. This would make it possible to bypass the Bastion service. RDP access is
+provided via the Bastion service over Secure Sockets Layer (SSL) (port 443). Bastion will use the private IP
+address of the VM because it is in the same VNet as the VM.
+
+Text from a17.jpg:
+You should send the vault diagnostic data to Log Analytics. You can create a Log Analytics workspace
+specifically for this purpose or you can send the data to an existing Log Analytics workspace. You can view
+the reports in the Azure portal by selecting Backup Reports.
+
+You should not stream the vault diagnostic data to an event hub, archive to a file storage account or archive
+to a blob storage account. These are all diagnostic data targets for Recovery Services diagnostics data but
+they do not support Azure Backup reporting.
+
+Text from a18-1.jpg:
+First, you should create a new resource group. Because you are deploying a whole new infrastructure for
+this application, you should create a new resource group and put all new resources in this new resource
+group.
+
+Next, you should create a single VNet. This VNet will provide connectivity between all the elements of the
+application.
+
+Next, you should create two subnets in the new VNet. You should assign a subnet for the front-end layer,
+and another for the back-end layer. You should not create a subnet for the Azure SQL Database, because
+this is deployed in its own internal network that you cannot customize. You can also create a network
+security group (NSG) for each subnet so that you can manage security on each subnet independently.
+
+Finally, you should enable service endpoints for the subnets within the VNet. You should also enable the
+service endpoint in the Azure SQL Database. This way, your database can directly connect to VMs deployed
+in the front-end and back-end subnets, and vice versa.
+
+Text from a18-2.jpg:
+You should not configure peering on each VNet. VNet peering allows you to connect different VNets so
+resources on each VNet can communicate with each other. In this scenario, there is no need to configure
+peering because creating a single VNet satisfies your communication needs.
+
+You should not create a VNet for each layer. Although creating a VNet for each layer could solve your
+communication requirements, this requires much more effort than using a single VNet. Each VNet still
+requires at least one subnet. Creating multiple VNets for this scenario would also require the configuration
+of peering between each VNet. There is no need to configure a VNet for the data layer because you will use
+Azure SQL Database, which does not require a VNet.
+
+You should not create three subnets. You need to configure a subnet for the front-end layer and another for
+the back-end layer. There is no need to configure an additional subnet for the data layer because Azure SQL
+Database has all its networking requirements configured internally.
+
+Text from a19.jpg:
+You should configure the change feed feature for the source account only. The change feed provides
+transaction log support for changes made to blobs and blob metadata in your source storage account. As
+an ordered, guaranteed, durable, immutable, read-only log of changes, the change feed enables robust
+block blob object replication from the source to the destination storage account.
+
+You should enable blob versioning in both the source and destination storage accounts. Blob versioning is
+necessary to automatically maintain previous versions of blob objects. This provides a path to restore an
+earlier version of a blob to recover your data if it is erroneously modified or deleted.
+
+Lack of support for blob versioning in accounts that have a hierarchical namespace is a reason why block
+object replication is not supported for Azure Data Lake Storage Genz.
+
+Text from a20.jpg:
+Virtual network peering is non-transitive, so communication between VNO1 and VNO3 would not be
+supported by default. You can configure spokes to use the hub network communication, but you must:
+
+¢ Configure allow gateway transit in the VNO2 peering connection only.
+¢ Configure use remote gateways in the VNO1 and VNO3 peering connections only.
+¢ Configure allow forwarding traffic in all peering connections.
+
+Gateway transit is necessary on the hub only, VNO2 in this case. This enables spoke virtual networks (VNets)
+to communicate through the hub. You also need to configure each spoke, but not the hub, to use remote
+gateways. Finally, you must configure the hub and all spokes to allow forwarding traffic.
+
+Text from a21.jpg:
+You should register the Microsoft.Operationallnsights provider namespace for the Azure Log Analytics
+workspace. This is the first time that the Log Analytics workspace is being used in the tenant given that the
+company currently only uses the Azure subscription for virtual machines (VMs) and storage; therefore, you
+need to register this provider namespace. Once you have registered the Microsoft.Operationallnsights
+provider namespace, you can create the App container environment, which includes the Log Analytics
+workspace that is required as part of the environment.
+
+You should not register the Microsoft.Policylnsights provider namespace. You would register
+
+the Microsoft.PolicyInsights provider namespace if you were using Azure Policy and you wanted to
+configure this via Command-Line Interface (CLI). Azure Policy is used for governance and guard rails within
+the Azure landing zone.
+
+You should not register the Microsoft.Automation provider namespace. You would register
+
+the Microsoft.Automation provider namespace if you were using the Azure Automation namespace. Azure
+Automation is an Azure native feature that is used to automate different tasks within your environment. For
+example, patching servers.
+
+You should not register the Microsoft.NotificationHubs provider namespace. You would register
+
+the Microsoft.NotificationHubs provider namespace if you were configuring Azure Event Hubs. Azure Event
+Hubs is a big data streaming platform and event ingestion service that can be integrated with Azure native
+services.
+
+Text from a22.jpg:
+The root cause of the issue is that password writeback is not enabled. You need to enable password
+writeback to allow hybrid users to use Self-Service Password Reset (SSPR). The identity objects of the
+London users are hosted on an on-premises Active Directory which synchronizes with Microsoft Entra ID.
+When a London user changes their password, it will update in Active Directory. By default, Microsoft Entra
+Connect synchronizes passwords in one direction only: On-premises Active Directory to Microsoft Entra ID.
+You need to enable and configure password writeback to allow users to update their password in Microsoft
+Entra ID so it synchronizes it to Active Directory on-premises.
+
+The All Users group includes cloud-only members, directory-synchronized members (hybrid) and guest
+users. The All Users security group is automatically created in Microsoft Entra ID and it is one of the default
+groups to which all users within your tenant are added when they are created. This includes cloud-only,
+hybrid and guest accounts.
+
+SSPR supports hybrid users that are synchronized from an on-premises Active Directory. You need to
+ensure that password writeback is enabled and configured in Microsoft Entra Connect to facilitate hybrid
+
+user support.
+
+The London users do have the relevant license. SSPR requires a Microsoft Entra ID P1 license or higher.
+
+Text from a23.jpg:
+You should create and store the password in an Azure key vault and create an access policy. You can
+configure your template to leverage the policy and retrieve the password from the key vault. This avoids the
+need to put the password in the source template as clear (plain) text.
+
+You should not create and store the password in a Recovery Services vault and create a backup policy. A
+Recovery Services vault is an Azure data storage entity used to store data and configuration backups. It does
+not support the storage of secured passwords that can be retrieved by a template during deployment.
+
+You should not create and store the password in the source template or in a separate linked template. If you
+embed the password in a template, it will have to be stored as clear text.
+
+Text from a24.jpg:
+You should generate a shared access signature (SAS) token for the report and share the Uniform Resource
+Locator (URL) with the board member. SAS enables you to define time-limited read-only or read-write
+access to Azure storage account resources. It is important that you set the time restriction properly because
+the SAS includes no authentication. Any person with access to the URL can access the target resource(s)
+within the token's lifetime. In this case, you both minimize administrative effort as well as maintain security
+compliance because the SAS token points only to a single file, not the entire blob container that hosts the
+requested report.
+
+You should not create a Microsoft Entra account for the board member and grant him role-based access
+control (RBAC) access to the storage account. First, it requires significant management overhead to create
+and manage Microsoft Entra accounts, even for external (guest) users. Second, SAS and not RBAC is the
+way Azure provides screened access to individual storage account resources. You can use RBAC roles only
+at the storage account scope.
+
+You should not copy the report to an Azure File Service share and provide the board member with a
+PowerShell connection script. Here you create security and governance problems by creating multiple
+copies of the source report, as well as producing unnecessary administrative complexity.
+
+You should not deploy a point-to-site (P2S) VPN connection on the board member's Chromebook and grant
+the board member RBAC access to the report. The scenario stipulates that the board member is limited to
+using a web browser on his Chromebook. Furthermore, the Azure P2S VPN client is supported only on
+Windows, macOS, and endorsed Linux distributions. Chrome OS is not supported.
+
+Text from a25.jpg:
+You should grant the User Access Administrator role. User with this role create and manage users and
+groups, manage support tickets, and monitor service health.
+
+You should not grant the Owner role. This role allows members to manage user access to Azure resources
+but also grants full access to all resources. The Owner role actually is a combination of User Access
+Administrator role, as well as the Contributor role. Granting this role would not follow the principle of least
+privilege in this scenario.
+
+You should not grant the Contributor role. This role allows members to create and manage all types of
+resources, but it does not allow them to manage other users' access to Azure resources in the subscription.
+
+You should not grant the Co-Administrator role. This is a classic subscription role that is equivalent to the
+Owner Role-Based Access Control (RBAC) role. Granting this role would not follow the principle of least
+privilege in this scenario.
+
+You should not grant the User Administrator role. This is a Microsoft Entra administrator role that does not
+control access to any Azure resources. This role grants permissions to manage users and groups in the
+Microsoft Entra tenant associated with the Azure subscription.
+
+Text from a26.jpg:
+You should pass the three IPv4 address ranges into the network security group (NSG) rule as a comma-separated list. NSGs in Azure allow you to specify individual IP addresses or address ranges either
+individually or as a comma-separated list. This reduces the number of NSG rules you would otherwise have to create to fulfill the requirements.
+
+You should not pass the IPv4 address range 192.168.0.0/22 into the NSG rule. Doing so would include other IPv4 network addresses besides the three included in the scenario requirements. Route summarization refers
+to identifying multiple contiguous IPv4 network addresses under a single, larger, network address.
+
+You should not define three NSG rules (one per IPv4 address range). You need to minimize the number of NSG rules and future administrative maintenance efforts. Therefore, you should only define a single NSG rule with a comma-separated list of IP ranges.
+
+You should not define an NSG rule that includes the VirtualNetwork service tag. Service tags, and application security groups (ASGs), represent keyword identifiers that make it easier to reference multiple hosts and/or networks in NSG rules. In this case, you need to write a rule that allows inbound connections from on-premises, IPv4 address ranges, not the VNet itself.
+
+
+
+
+
+
+
+Text from a27.jpg:
+
+
+Text from a28.jpg:
+
+
+Text from a29-1.jpg:
+In this scenario, you are using Azure Bicep to set up alerts for Azure Advisor. Bicep is a domain-specific
+language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable
+type safety, and support for code reuse. You should use the below Azure resources in the main.bicep file.
+
+1. Microsoft.Insights/actionGroups: The actionGroups resource type is supported in Bicep for Azure
+Advisor. You need to mention name, location, tags and properties.
+
+2. Microsoft.Insights/activityLogAlerts: The activityLogAlerts resource type is supported in Bicep for
+Azure Advisor. You need to mention name, location, tags and properties. Since Azure Activity Log
+Alerts is a global service, the location of the rules should always be global.
+
+You should not use Microsoft.Insights/alertrules. You should use this resource type when you want to use
+Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria for the odata.type property. In this
+scenario, since you are setting up alerts for Azure Advisor, the main.bicep file should have the actionGroups
+and activityLogAlerts resource types only.
+
+Text from a29-2.jpg:
+You should not use Microsoft.Insights/dataCollectionRules. You should use this resource type when you
+want to gather information from different sources including dataFlows, dataSources, iisLogs, logFiles,
+performanceCounters, syslog, windowsEventLogs, etc. In this scenario, since you are setting up alerts for
+Azure Advisor, the main.bicep file should have the actionGroups and activityLogAlerts resource types only.
+
+You should not use Microsoft.Insights/metricAlerts. This field allows for specifying custom properties, which
+would be appended to the alert payload sent as input to the webhook. You should use this resource type
+when you want to define custom properties, which would be appended to the alert payload sent as input via
+webhooks.
+
+
+
+Text from a31.jpg:
+
+
+Text from a32.jpg:
+
+
+Text from a33-1.jpg:
+On Wednesday 06/10/2020, the observed capacity should be 4. The first (default) scale condition is
+applicable here. The second scale condition is valid from 04/05/2020 to 04/12/2020. The date 06/10/2020 is
+not in this date range. The third scale condition is only valid on Fridays, and it is Wednesday.
+
+The default scale out rule has the following properties:
+
+Threshold: 75 percent CPU usage. Scaling out will occur above this threshold.
+
+Duration: 10 minutes. This is the amount of time that has to pass before the metric and the threshold
+are compared.
+
+Cool down: 1 minute. No autoscaling will occur in this period.
+
+¢ Action: increase count by 1.
+
+This means that 1 VM instance will be added after 10 minutes, making a total of 4 (3 + 1= 4). After 11 minutes
+the situation will still be the same.
+
+Text from a33-2.jpg:
+On Monday 04/06/2020, the observed capacity should be 6. The second scale condition is valid
+from 04/05/2020 to 04/12/2020. So this scale condition is applicable on 04/06/2020. A specific instance
+count of 6 will be used. In this case the scaling is not based on a metric.
+
+On Tuesday 05/05/2020, the observed capacity should be 2. The first (default) scale condition will apply
+here. The other scale conditions are not valid on Tuesday 05/05/2020.
+
+The default scale in rule has the following properties:
+
+Threshold: 25 percent CPU usage
+Duration: 5 minutes
+
+Cool down: 1 minute
+
+Action: decrease count by 1
+
+The initial number of instances is 3. After 6 minutes of 10 percent CPU usage (which is below the threshold),
+the number of instances will be scaled down to 2. Notice that 2 is also the minimum instance count.
+
+
+
+
+
+
+
+Text from a38.jpg:
+Only Microsoft Entra ID and Shared Access Signature (SAS) authorizations are supported with blob storage
+to copy the data to DevStore. In this scenario your commands target only the file share or the account. You
+have to use a SAS token in any command that targets only the file share or the account. Another alternative
+for you is that you choose to use commands that target files and directories, you can now provide
+authorization credentials by using Microsoft Entra ID and omit the SAS token from those commands.
+
+You can provide AzCopy with authorization credentials by using Microsoft Entra ID. That way, you will not
+have to append a shared access signature (SAS) token to each command. In summary, the Microsoft Entra
+ID and SAS only is the correct option for File storage.
+
+Access keys, which are generated by Azure when you create a storage account, are not used for copy
+authorization with AzCopy.
+
+
+
+
+
+
+
+
+
+Text from a42.jpg:
+The metrics:getBatch API allows you to query multiple resources in a single REST request and also allows
+you better flexibility in terms of mitigating any throttling or performance issues associated with heavy use of
+the metrics API. Therefore, using the metrics:getBatch API is strongly recommended instead of using the
+standard metrics API. Thus, metrics:getBatch API usage here allows you to prevent throttling and
+performance issues when querying multiple resources in a single REST request.
+
+VMs vmss-002_1sdf4cc9 and vmss-003_s1187c3h cannot both be spread across multiple Azure regions. All
+resources in a batch must be in the same subscription and must be hosted within the same Azure region.
+
+Both VMs vmss-002_1sdf4cc9 and vmss-003_s1187c3h must be the same resource type. This is because all
+resources in a batch must be the same virtual machine resource type.
+
+
+
+Text from a45.jpg:
+
+
+
+
+Text from a47.jpg:
+
+
+Text from a48.jpg:
+
+
+Text from a49.jpg:
+
+
+Text from a50.jpg:
+
+
+Text from a51.jpg:
+
+
+
+Text from a52.jpg:
+There are two types of backups for Azure App Service: Automatic and Custom. With Automatic backups it
+is not possible to customize any of the settings, and for Custom backups, the settings must be configured.
+
+Automatic App Service backups do not cover linked databases because the setting for including linked
+databases is not enabled. Linked database backup is only supported with Custom App Service backups.
+The following linked databases can be backed up: SQL Database, Azure Database for MySQL, Azure
+Database for PostgreSQL, and MySQL.
+
+Custom App Service backups support indefinite retention points. When using Custom backups in App
+Services, you can configure a retention period of 0-30 days, or you can set it to have indefinite retention
+points. Automatic backups only allow 30 day retentions and it is not possible to change this setting.
+
+Custom App Service backups are available on the Premium storage pricing tier. In App Services, both
+Automatic and Custom backups support the use of the Premium storage pricing tier as the backup store
+location. Both backup types also support the Standard storage pricing tier, but only Custom backups
+support the Isolated pricing tier.
+
+
+Text from a53.jpg:
+
+
+Text from a54.jpg:
+
+
